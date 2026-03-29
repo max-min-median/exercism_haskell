@@ -1,0 +1,6 @@
+module Hamming (distance) where
+
+distance :: String -> String -> Maybe Int
+distance "" "" = Just 0
+distance (x: xs) (y: ys) = fmap (if x /= y then (+1) else id) $ distance xs ys
+distance _ _ = Nothing
